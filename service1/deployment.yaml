@@ -6,16 +6,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: client
+      app: service1
   template:
     metadata:
      labels:
-       app: client
+       app: service1
     spec:
       containers:
         - image: service1
           imagePullPolicy: Never
-          name: client
+          name: service1
           ports:
             - containerPort: 3000
 
