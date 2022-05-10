@@ -13,8 +13,10 @@ spec:
        app: client
     spec:
       containers:
-        - image: client:0.1
+        - image: service2
           imagePullPolicy: Never
           name: client
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+
+# eval $(minikube docker-env)

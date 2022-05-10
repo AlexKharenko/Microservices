@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+     labels:
+       app: client
+    spec:
+      containers:
+        - image: service1
+          imagePullPolicy: Never
+          name: client
+          ports:
+            - containerPort: 3000
+
+# eval $(minikube docker-env)

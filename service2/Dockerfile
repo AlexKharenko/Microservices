@@ -3,10 +3,10 @@ FROM node:14-alpine3.12
 
 WORKDIR /
 
-COPY service/package*.json ./
+COPY service2/package*.json ./
 
 RUN npm install
-COPY service/. ./
+COPY service2/. ./
 
 EXPOSE 3000
 

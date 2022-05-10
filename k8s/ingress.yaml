@@ -6,17 +6,17 @@ spec:
   rules:
     - http:
         paths:
-          - path: /api       
+          - path: /service1       
             pathType: Prefix           # все, що починається з `/api` буде направлено на сервіс demo-service. Альтернативно можна використовувати `Exact` та `ImplementationSpecific`
             backend:
               service:
-                name: service-service # ім'я сервісу
+                name: service1 # ім'я сервісу
                 port:
-                  number: 3000     
-          - path: /
+                  number: 80     
+          - path: /service2
             pathType: Prefix
             backend:
               service:
-                name: client-service
+                name: service2
                 port:
                   number: 80
