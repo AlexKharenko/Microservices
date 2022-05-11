@@ -15,12 +15,12 @@ spec:
       initContainers:
         - name: run-migrations
           image: service1-migrations:0.1
-          command: ["migrate", "-path", "/migrations", "-database", "$(POSTGRESQL_URL)", "up"] # CLI команда запуску міграцій, де $(POSTGRESQL_URL) і $(VERSION) змінні середовища
+          command: ["migrate", "-path", "/migrations", "-database", "$(POSTGRESQL_URL)", "goto", "$(VERSION)"] # CLI команда запуску міграцій, де $(POSTGRESQL_URL) і $(VERSION) змінні середовища
           env:
             - name: POSTGRESQL_URL
               value: "postgres://demo:demo@postgres:5432/demo?sslmode=disable"
             - name: VERSION
-              value: "20211128095755"
+              value: "000002"
       containers:
         - image: service1      # образ Docker
           name: service1           # ім'я контейнера

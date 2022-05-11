@@ -1,40 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="./favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <title>Client</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="./favicon.ico" />
+  <script type="text/javascript" src="./script.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client</title>
+</head>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-  <script>
-    (async () => {
-      const body = document.getElementById('root');
+<body>
+  <div id="root">
+    <button id="create-pop-up-btn">Create</button>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <td>BookId</td>
+            <td>Book Name</td>
+            <td>Author</td>
+            <td>Year</td>
+            <td>Description</td>
+            <td>Action</td>
+          </tr>
+        </thead>
+        <tbody>
 
-      const res1 = await fetch('service1');
-      const text1 = await res1.text();
-      const res2 = await fetch('service2');
-      const text2 = await res2.text();
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-      body.textContent += text1 + '\n';
-      body.textContent += text2 + '\n';
-    })()
-  </script>
+  <div class="pop-up">
+    <div class="pop-up-content">
+      <button id="close-pop-up-btn">Close</button>
+      <div class="create-pop-up">
+        <div class="input-block">
+          <input type="text" placeholder="Title">
+          <input type="text" placeholder="Author">
+          <input type="text" placeholder="Year">
+          <input type="text" placeholder="Description">
+        </div>
+        <button id="create-btn">Create</button>
+      </div>
+      <div class="update-pop-up">
+        <div class="input-block">
+          <input type="text" placeholder="Title">
+          <input type="text" placeholder="Author">
+          <input type="text" placeholder="Year">
+          <input type="text" placeholder="Description">
+        </div>
+        <button id="update-btn">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <template id="templaterow">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </template>
+</body>
+<script>
+  // (async () => {
+  //   const body = document.getElementById('root');
+
+  //   const res1 = await fetch('service1');
+  //   const text1 = await res1.text();
+  //   const res2 = await fetch('service2');
+  //   const text2 = await res2.text();
+
+  //   body.textContent += text1 + '\n';
+  //   body.textContent += text2 + '\n';
+  // })()
+</script>
+
 </html>
