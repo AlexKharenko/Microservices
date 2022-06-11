@@ -6,12 +6,12 @@ const kafka = new Kafka({
   brokers: ['kafka:9092']
 })
 
-const consumer = kafka.consumer({ groupId: 'test-group' })
+const consumer = kafka.consumer({ groupId: 'test-group-1' })
 let lastMessage = '';
 
 const run = async () => {
   await consumer.connect()
-  await consumer.subscribe({ topic: 'service2', fromBeginning: false })
+  await consumer.subscribe({ topic: 'service3', fromBeginning: false })
   
   
   await consumer.run({
@@ -31,7 +31,6 @@ run().catch(console.error)
 
 const requestListener = function (req, res) {
   res.writeHead(200);
-  console.log(lastMessage);
   res.end(lastMessage);
 }
 

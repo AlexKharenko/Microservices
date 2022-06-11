@@ -1,5 +1,34 @@
 const { Pool } = require('pg')
 const fastify = require('fastify')({ logger: true })
+const { Kafka } = require('kafkajs')
+
+const kafka = new Kafka({
+  clientId: 'my-app',
+  brokers: ['kafka:9092']
+})
+
+const producer = kafka.producer()
+
+const run = async () => {
+  await producer.connect()
+
+  setInterval(async () => {
+    await producer.send({
+      topic: 'service2',
+      messages: [
+        { value: 'Hello service2 user! ' + (new Date()).toString() },
+      ],
+    })
+
+    await producer.send({
+      topic: 'service3',
+      messages: [
+        { value: 'Hello service3 user! ' + (new Date()).toString() },
+      ],
+    })
+  }, 10 * 1000)
+}
+run()
 
 const pool = new Pool({
   user: process.env.POSTGRES_USER,
